@@ -1,0 +1,28 @@
+def binary_search(mobil, mobil_dicari):
+    rendah = 0
+    tinggi = len(mobil) - 1
+    
+    while rendah <= tinggi:
+        tengah = (tinggi + rendah) // 2
+
+        if mobil[tengah] < mobil_dicari:
+            rendah = tengah + 1
+        elif mobil[tengah] > mobil_dicari:
+            tinggi = tengah - 1
+        else:
+            return tengah
+
+    return -1
+
+# Mengambil input dari pengguna untuk daftar nama mobil
+mobil = input("Masukkan nama mobil (dipisahkan oleh spasi): ").split()
+mobil_dicari = input("Masukkan nama mobil yang ingin dicari: ")
+
+# Melakukan pencarian biner
+hasil = binary_search(mobil, mobil_dicari)
+
+# Memeriksa hasil dan mencetak pesan yang sesuai
+if hasil != -1:
+    print(f"Mobil ditemukan pada indeks {hasil}")
+else:
+    print("Mobil tidak ditemukan dalam daftar")
